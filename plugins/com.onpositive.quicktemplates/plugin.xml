@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Quick Templates"
+            id="com.onpositive.quicktemplates.commands.category">
+      </category>
+      <command
+            name="Insert Quick Template 1"
+            categoryId="com.onpositive.quicktemplates.commands.category"
+            id="com.onpositive.quicktemplates.commands.insertTemplateCommand1">
+            <commandParameter id="com.onpositive.quicktemplates.commands.slotId"
+				name="Template slot id to insert"/>
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.onpositive.quicktemplates.commands.insertTemplateCommand1"
+            class="com.onpositive.quicktemplates.handlers.QuickTemplateHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.onpositive.quicktemplates.commands.insertTemplateCommand1"
+            contextId="org.eclipse.jdt.ui.javaEditorScope"
+            sequence="ALT+1"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      	  <parameter id="com.onpositive.quicktemplates.commands.slotId" value="1"/>
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors.templates">
+      <include
+            file="templates/quicktemplates.xml">
+      </include>
+   </extension>
+  <!-- <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Sample Menu"
+               mnemonic="M"
+               id="com.onpositive.quicktemplates.menus.sampleMenu">
+            <command
+                  commandId="com.onpositive.quicktemplates.commands.insertTemplateCommand1"
+                  mnemonic="S"
+                  id="com.onpositive.quicktemplates.menus.insertTemplateCommand1">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.onpositive.quicktemplates.toolbars.sampleToolbar">
+            <command
+                  commandId="com.onpositive.quicktemplates.commands.insertTemplateCommand1"
+                  icon="icons/sample.png"
+                  tooltip="Say hello world"
+                  id="com.onpositive.quicktemplates.toolbars.insertTemplateCommand1">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension> -->
+
+</plugin>

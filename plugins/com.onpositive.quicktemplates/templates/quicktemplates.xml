@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+	<template autoinsert="true" context="java" deleted="false"
+		description="ArrayList declaration" enabled="true" name="arraylist"
+		id="com.onpositive.quicktemplates.arrlist">List&lt;${type}&gt;
+		${name:newName(java.util.List)} = new
+		ArrayList&lt;${type}&gt;();${:import(java.util.List,
+		java.util.ArrayList)}
+	</template>
+	<template autoinsert="true" context="java" deleted="false"
+		description="HashMap declaration" enabled="true" name="hashmap"
+		id="com.onpositive.quicktemplates.hashmap">Map&lt;${keyType},
+		${valueType}&gt; ${name:newName(java.util.Map)} = new
+		HashMap&lt;${keyType}, ${valueType}&gt;();${:import(java.util.Map,
+		java.util.HashMap)}
+	</template>
+	<template autoinsert="true" context="java" deleted="false"
+		description="HashSet declaration" enabled="true" name="hashset"
+		id="com.onpositive.quicktemplates.hashset">Set&lt;${type}&gt;
+		${name:newName(java.util.Set)} = new
+		HashSet&lt;${type}&gt;();${:import(java.util.Set, java.util.HashSet)}
+	</template>
+	<template name="ifnotnull" description="If not null"
+		id="com.onpositive.quicktemplates.ifnotnull" context="java-statements"
+		enabled="true" autoinsert="false">
+		if (${myvar:newName(variable)}!=null) {
+			${cursor}
+		}
+	</template>
+	<template name="ifnull" description="If null"
+		id="com.onpositive.quicktemplates.ifnull" context="java-statements"
+		enabled="true" autoinsert="false">
+		if (${myvar:newName(variable)}==null) {
+			${cursor}
+		}
+	</template>
+</templates>
