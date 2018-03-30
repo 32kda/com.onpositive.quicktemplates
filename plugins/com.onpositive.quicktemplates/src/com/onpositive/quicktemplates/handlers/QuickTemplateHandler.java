@@ -46,22 +46,22 @@ public class QuickTemplateHandler extends AbstractHandler {
 		}
 		ISourceViewer sourceViewer = (ISourceViewer) activeEditor.getAdapter(ITextOperationTarget.class);
 		String parameter = event.getParameter("com.onpositive.quicktemplates.commands.slotId");
-//		Point range = sourceViewer.getSelectedRange();
-//		JavaPlugin.getDefault().getTemplateStore().getTemplateData()
-//		JavaPlugin.getDefault().getTemplateContextRegistry().getContextType("java-statements").
-		// You can generate template dynamically here!
-//		Template template = new Template("new List", "Add new list creation", JavaContextType.ID_STATEMENTS,
-//				"List<${type}> ${name:newName(java.util.List)} = new ArrayList<${type}>();${:import(java.util.List, java.util.ArrayList)}",
-//				true);
-//		IRegion region = new Region(range.x, range.y);
-//		JavaContextType contextType = new JavaContextType();
-//		contextType.setId(JavaContextType.ID_STATEMENTS); //Set context type, for which we apply this template
-//		contextType.addResolver(new ImportsResolver("import","import")); //Add imports resolver if we want imports to be added automatically for some template
-//		CompilationUnitContext ctx = new JavaContext(contextType, sourceViewer.getDocument(), range.x,
-//				range.y, unit);
-//		TemplateProposal proposal = new TemplateProposal(template, ctx, region, null);
-//		proposal.apply(sourceViewer, (char) 0, 0, 0);
-		insertTemplate("com.onpositive.quicktemplates.ifnotnull",sourceViewer, unit);
+		if (parameter != null) {
+			int option = Integer.parseInt(parameter.trim());
+			switch (option) {
+				case 1: insertTemplate("org.eclipse.jdt.ui.templates.if", sourceViewer, unit);
+				break;
+				case 2: insertTemplate("org.eclipse.jdt.ui.templates.ifnotnull",sourceViewer, unit);
+				break;
+				case 3: insertTemplate("org.eclipse.jdt.ui.templates.ifnull",sourceViewer, unit);
+				break;
+				case 4: insertTemplate("com.onpositive.quicktemplates.arrlist",sourceViewer, unit);
+				break;
+				case 5: insertTemplate("com.onpositive.quicktemplates.hashmap",sourceViewer, unit);
+				break;
+			}
+			
+		}
 		return null;
 	}
 	
